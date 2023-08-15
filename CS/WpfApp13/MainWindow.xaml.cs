@@ -56,8 +56,7 @@ namespace WpfApp13
         private void DiagramControl1_ItemsRotating(object sender, DiagramItemsRotatingEventArgs e) {
             var groups = e.Items.GroupBy(x => x.Item.ParentItem);
             foreach (var group in groups) {
-                if (group.Key is CustomDiagramContainer) {
-                    var container = (CustomDiagramContainer)group.Key;
+                if (group.Key is CustomDiagramContainer container) {
                     var containingRect = container.Items.Select(x => x.RotatedDiagramBounds().BoundedRect()).Aggregate(Rect.Empty, Rect.Union);
                     container.Position = new Point(containingRect.X, containingRect.Y);
                     container.Width = (float)containingRect.Width;
