@@ -1,28 +1,11 @@
 ﻿using DevExpress.Diagram.Core;
 using DevExpress.Diagram.Core.Native;
-using DevExpress.Utils;
 using DevExpress.Xpf.Diagram;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace WpfApp13
-{
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    /// 
+namespace WpfApp13 {
     public class CustomDiagramContainer : DiagramContainer {
         static CustomDiagramContainer() {
             CanRotateProperty.OverrideMetadata(typeof(CustomDiagramContainer), new FrameworkPropertyMetadata(true, null, (d, v) => v));
@@ -56,7 +39,8 @@ namespace WpfApp13
         private void DiagramControl1_ItemsRotating(object sender, DiagramItemsRotatingEventArgs e) {
             var groups = e.Items.GroupBy(x => x.Item.ParentItem);
             foreach (var group in groups) {
-                if (group.Key is CustomDiagramContainer container) {
+                if (group.Key is CustomDiagramContainer) {
+                    var container = (CustomDiagramContainer)group.Key;
                     var containingRect = container.Items.Select(x => x.RotatedDiagramBounds().BoundedRect()).Aggregate(Rect.Empty, Rect.Union);
                     container.Position = new Point(containingRect.X, containingRect.Y);
                     container.Width = (float)containingRect.Width;
