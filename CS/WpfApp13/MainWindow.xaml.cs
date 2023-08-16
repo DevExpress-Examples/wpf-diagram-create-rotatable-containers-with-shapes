@@ -70,6 +70,7 @@ namespace WpfApp13 {
                 CanChangeParent = false,
                 CanEdit = true,
                 CanResize = false,
+                CanRotate = false,
                 CanCopyWithoutParent = false,
                 CanDeleteWithoutParent = false,
                 CanMove = false,
