@@ -1,18 +1,12 @@
 Imports DevExpress.Diagram.Core
 Imports DevExpress.Diagram.Core.Native
 Imports DevExpress.Xpf.Diagram
-Imports System
 Imports System.Linq
 Imports System.Windows
-Imports System.Windows.Controls
 Imports System.Windows.Media
 
 Namespace WpfApp13
 
-    ''' <summary>
-    ''' Interaction logic for MainWindow.xaml
-    ''' </summary>
-    ''' 
     Public Class CustomDiagramContainer
         Inherits DiagramContainer
 
@@ -49,10 +43,10 @@ Namespace WpfApp13
 
         Private Sub DiagramControl1_ItemsRotating(ByVal sender As Object, ByVal e As DiagramItemsRotatingEventArgs)
             Dim groups = e.Items.GroupBy(Function(x) x.Item.ParentItem)
-            Dim container As CustomDiagramContainer = Nothing
             For Each group In groups
-                If CSharpImpl.__Assign(container, TryCast(group.Key, CustomDiagramContainer)) IsNot Nothing Then
-                    Dim containingRect = container.Items.[Select](Function(x) x.RotatedDiagramBounds().BoundedRect()).Aggregate(Rect.Empty, New Func(Of Rect, Rect, Rect)(AddressOf Rect.Union))
+                If TypeOf group.Key Is CustomDiagramContainer Then
+                    Dim container = CType(group.Key, CustomDiagramContainer)
+                    Dim containingRect = container.Items.[Select](Function(x) x.RotatedDiagramBounds().BoundedRect()).Aggregate(Rect.Empty, New System.Func(Of Rect, Rect, Rect)(AddressOf Rect.Union))
                     container.Position = New Point(containingRect.X, containingRect.Y)
                     container.Width = CSng(containingRect.Width)
                     container.Height = CSng(containingRect.Height)
@@ -70,14 +64,5 @@ Namespace WpfApp13
             container.Items.Add(innerShape2)
             Return container
         End Function
-
-        Private Class CSharpImpl
-
-            <Obsolete("Please refactor calling code to use normal Visual Basic assignment")>
-            Shared Function __Assign(Of T)(ByRef target As T, value As T) As T
-                target = value
-                Return value
-            End Function
-        End Class
     End Class
 End Namespace
