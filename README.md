@@ -12,7 +12,7 @@ This example demonstrates how to allow users to rotate containers with shapes.
 
 ## Implementation Details
 
-Default diagram containers do not support rotation operations. However, this operations are implemented in the base class. You can define a custom rotatable container in the following way:
+Default diagram containers do not support rotation operations. However, these operations are implemented in the base class. You can define a custom rotatable container in the following way:
 
 1. Create a [DiagramContainer](https://docs.devexpress.com/WPF/DevExpress.Xpf.Diagram.DiagramContainer) class descendant.
 2. Override the [CanRotate](https://docs.devexpress.com/WPF/DevExpress.Xpf.Diagram.DiagramItem.CanRotate) property.
