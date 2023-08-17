@@ -8,8 +8,7 @@
 
 This example demonstrates how to allow users to rotate containers with shapes.
 
-![image](https://github.com/DevExpress-Examples/wpf-rotating-containers-with-shapes/assets/65009440/e2bcda4f-3885-41e1-bbf4-8e0b2f46c1d1)
-
+![image](https://github.com/DevExpress-Examples/wpf-diagram-create-rotatable-containers-with-shapes/assets/65009440/d35f9b7c-720e-4944-8f2c-388f578b9f3f)
 
 ## Implementation Details
 
