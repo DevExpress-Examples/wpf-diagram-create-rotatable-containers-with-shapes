@@ -6,13 +6,13 @@
 
 # WPF DiagramControl - Create Rotatable Containers with Shapes
 
-This example demonstrates how to allow users to rotate containers with shapes.
+This example allows users to rotate containers with shapes.
 
 ![image](https://github.com/DevExpress-Examples/wpf-diagram-create-rotatable-containers-with-shapes/assets/65009440/d35f9b7c-720e-4944-8f2c-388f578b9f3f)
 
 ## Implementation Details
 
-Default diagram containers do not support rotation operations. However, these operations are implemented in the base class. You can define a custom rotatable container in the following way:
+Default diagram containers do not support rotation-related operations. These operations, however, are implemented in the base class. You can define a custom rotatable container in the following manner:
 
 1. Create a [DiagramContainer](https://docs.devexpress.com/WPF/DevExpress.Xpf.Diagram.DiagramContainer) class descendant.
 2. Override the [CanRotate](https://docs.devexpress.com/WPF/DevExpress.Xpf.Diagram.DiagramItem.CanRotate) property.
@@ -38,9 +38,9 @@ Default diagram containers do not support rotation operations. However, these op
    }
    ```
 
-   In this case, the `DiagramControl` rotates these inner items instead of the parent container.
+   In this instance, the `DiagramControl` rotates associated inner items instead of the parent container.
    
-4. Handle the [DiagramControl.ItemsRotating](https://docs.devexpress.com/WPF/DevExpress.Xpf.Diagram.DiagramControl.ItemsRotating) event and correct the container position and size:
+4. Handle the [DiagramControl.ItemsRotating](https://docs.devexpress.com/WPF/DevExpress.Xpf.Diagram.DiagramControl.ItemsRotating) event and correct the container's position and size:
 
    ```csharp
    private void DiagramControl1_ItemsRotating(object sender, DiagramItemsRotatingEventArgs e) {
@@ -64,6 +64,7 @@ Default diagram containers do not support rotation operations. However, these op
 ## Documentation
 
 - [Containers and Lists](https://docs.devexpress.com/WPF/117205/controls-and-libraries/diagram-control/diagram-items/containers)
+- [Create Custom Diagram Items](https://docs.devexpress.com/WPF/404589/controls-and-libraries/diagram-control/diagram-items/create-custom-diagram-items)
 - [DiagramControl.BeforeItemsRotating](https://docs.devexpress.com/WPF/DevExpress.Xpf.Diagram.DiagramControl.BeforeItemsRotating)
 - [DiagramControl.ItemsRotating](https://docs.devexpress.com/WPF/DevExpress.Xpf.Diagram.DiagramControl.ItemsRotating)
 
